@@ -5,11 +5,18 @@ class LocationsController < ApplicationController
         render json: @locations
     end
 
-    #for second blog: add index, patch/update, delete, private method
 
-    private
+    def create
+        @location = Location.create(
+            name: params[:name],
+            baseball: params[:baseball],
+            basketball: params[:basketball],
+            football: params[:football],
+            hockey: params[:hockey],
+            capital: params[:capital],
+            total_teams: params[:total_teams]
+        )
 
-    def location_params
-
+        render json: @location, status: :created
     end
 end
