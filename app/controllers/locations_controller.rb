@@ -19,4 +19,12 @@ class LocationsController < ApplicationController
 
         render json: @location, status: :created
     end
+
+    def destroy
+        @location = Location.find(params[:id])
+
+        @location.destroy
+
+        render status: :no_content
+    end
 end
