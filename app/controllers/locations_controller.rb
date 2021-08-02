@@ -1,10 +1,8 @@
 class LocationsController < ApplicationController
-
     def index
         @locations = Location.all 
         render json: @locations
     end
-
 
     def create
         @location = Location.create(
@@ -16,15 +14,15 @@ class LocationsController < ApplicationController
             capital: params[:capital],
             total_teams: params[:total_teams]
         )
-
         render json: @location, status: :created
     end
 
     def destroy
         @location = Location.find(params[:id])
-
         @location.destroy
-
         render status: :no_content
     end
 end
+
+# private
+
